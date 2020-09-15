@@ -1,0 +1,6 @@
+﻿stored procedures
+functions
+triggers
+views
+indexes
+etc.
