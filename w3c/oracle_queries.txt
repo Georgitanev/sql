@@ -1,0 +1,163 @@
+﻿emp and department tables run in Oracle
+https://livesql.oracle.com/apex/livesql/file/content_O5AEB2HE08PYEPTGCFLZU9YCV.html
+Worksheet
+https://livesql.oracle.com/apex/f?p=590:1:8208767158186::LEVEL1:RP::
+
+https://www.youtube.com/watch?v=-6v7ctxC7yk&list=PLqM7alHXFySGweLxxAdBDK1CcDEgF-Kwx&ab_channel=GeeksforGeeks
+
+
+(Only work in Oracle 3, )
+
+
+
+1. Find second highest salary of employee from emp table
+
+select max(sal) from emp
+where sal not in(select max(sal) from emp)
+
+OR
+select max(sal) from emp
+where sal <(select max(sal) from emp)
+
+2. Department - high salary by department 
+
+select max(sal), deptno 
+from emp
+group by deptno
+;
+
+(how many employees in each department?)
+select count(*), deptno
+from emp
+group by deptno;
+
+3. Display alternate reccords
+
+(rownum)
+select rownum, empno, sal, ename from emp;
+
+(order by salary desc)
+select rownum, empno, sal, ename from emp
+order by sal desc;
+
+(get rows who are with odd numbers !=/2 (1,3,5,...) 
+select * from 
+    (select rownum rn, empno, ename, sal
+        from emp
+        order by rn)
+        where mod (rn, 2) != 0;
+
+(same with even numbers)
+select * from 
+    (select rownum rn, empno, ename, sal
+        from emp
+        order by rn)
+        where mod (rn, 2) = 0;
+
+4. Display duplicate of a column
+(in table there is no duplicated names of employees)
+(so you can search by job column where there is duplicates)
+
+
+(displays name, (number of repeating names of employees))
+
+(ename)
+select ename, count(*)
+from emp
+group by ename;
+
+(job)
+select ename, count(*)
+from emp
+group by ename;
+
+(duplicate values - name, count of repeats)
+
+(ename)
+select ename, count(*)
+from emp
+group by ename
+having count(*)>1;
+
+(job)
+select job, count(*)
+from emp
+group by job
+having count(*)>1;
+
+5. Pattern matching in SQL
+
+(select names who start with 'M'
+
+select ename from emp
+where ename like 'M%';
+
+(select names who Ends with 'N')
+select ename from emp
+where ename like '%N';
+
+(select names who have letter 'M' in the name)
+
+select ename from emp
+where ename like '%M%';
+
+(not contain 'M' in name)
+
+select ename from emp
+where ename not like '%M%';
+
+6. Pattern searching in SQL
+
+6.1
+(Display names of all employees whose name contains
+exacly 4 letters)
+
+select ename from emp
+where ename like '____';
+
+6.2
+(Display names of all employees whose name contains
+the (i)second letter and 'L'(ii) fourth letter as 'M'
+
+select ename from emp
+where ename like '_L%';
+
+select ename from emp
+where ename like '___M%';
+
+6.3
+(Display the emloyee names and hire dates for 
+the employees joined in the month of December)
+select hiredate, ename from emp
+where hiredate like '%DEC%';
+
+6.4
+(Display the names of employees whose name contains exactly 2 'L' s)
+
+select ename from emp
+where ename like '%LL%'
+
+6.5
+(Display the name of employees whose name starts with 
+
+select ename from emp
+where ename like 'J%S'
+
+7.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

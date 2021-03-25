@@ -1,0 +1,5 @@
+﻿https://bigquery.googleapis.com/bigquery/v2/projects/{big-query-284408}/datasets/{bigquery-public-data:google_analytics_sample}
+
+AIzaSyCDoNer7Bvte72znoR23wuNaPIqQTrx4Wk
+
+

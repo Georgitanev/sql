@@ -1,0 +1,8 @@
+﻿# https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_top&ss=-1
+1. select CustomerID, CustomerName, Country for 4th customer from table customers
+
+select top 1 CustomerID, CustomerName, Country  from (select top 4 * from Customers) ORDER BY CustomerID DESC;
+
+2. select all columns for 4th customer from table customers
+select top 1 *  from (select top 4 * from Customers) ORDER BY CustomerID DESC;
+

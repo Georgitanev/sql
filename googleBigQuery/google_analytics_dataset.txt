@@ -1,0 +1,52 @@
+﻿# Google Analytics dataset
+https://console.cloud.google.com/bigquery?GK=bigquery-public-data&project=rare-journal-287512&folder=&organizationId=&cloudshell=true&j=bq:US:bquxjob_79526ccd_17425895146&page=queryresults
+# Code: 
+SELECT
+date,
+channelGrouping as channel,
+totals.visits,
+totals.transactions,
+totals.transactionRevenue
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`
+LIMIT 1000
+
+2.
+
+SELECT
+date,
+channelGrouping as channel,
+totals.visits,
+totals.transactions,
+totals.transactionRevenue
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`
+WHERE channelGrouping in ('Direct', 'Organic Search')
+ORDER BY totals.transactionRevenue desc
+LIMIT 101
+3.
+SELECT channelGrouping as channel,
+sum(totals.visits) as visits, 
+sum(totals.transactions) as transactions, 
+sum(totals.transactionRevenue) as revenue 
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801` 
+WHERE channelGrouping in ('Organic Search', 'Direct') 
+GROUP BY channel 
+ORDER BY transactions 
+desc LIMIT 1000
+4.
+SELECT date, channelGrouping as channel,
+sum(totals.visits) as visits, 
+CASE WHEN sum(totals.visits) > 0 THEN sum(totals.transactions) / sum(totals.visits) 
+ELSE 0 END as conv_rate, 
+sum(totals.transactions) as transactions, 
+CASE WHEN sum(totals.transactions) > 0 THEN
+sum(totals.transactionRevenue) / sum(totals.transactions)
+ELSE 0 END as aov,
+sum(totals.transactionRevenue) as revenue 
+FROM `bigquery-public-data.google_analytics_sample.ga_sessions_20170801`
+WHERE channelGrouping in ('Organic Search', 'Direct') 
+GROUP BY date, channel
+ORDER BY transactions 
+desc LIMIT 1000
+5.
+
+

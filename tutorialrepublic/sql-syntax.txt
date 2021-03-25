@@ -1,0 +1,13 @@
+﻿sql-syntax
+https://www.tutorialrepublic.com/sql-tutorial/sql-syntax.php
+1. comments:
+-- Select all the employees
+SELECT * FROM employees;
+
+2.
+/* Select all the employees whose 
+salary is greater than 5000 */
+SELECT * FROM employees
+WHERE salary > 5000;
+
+

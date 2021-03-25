@@ -23,7 +23,6 @@ where id ='1012'
 
 SELECT *
   FROM game JOIN goal ON (id=matchid)
-    ON (game.id=goal.matchid)
 
 
 SELECT player, teamid, stadium, mdate 
