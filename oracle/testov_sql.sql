@@ -18,6 +18,23 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
 	END                                                                 salary_level
 FROM employees
 */
+
+/* added more salary checking ranges
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, 
+    (CASE 
+    when PHONE_NUMBER like '515%' then PHONE_NUMBER else 'not working anymore' 
+     END)                                                               phone_number,
+                                                                        SALARY      ,
+    CASE 
+        when SALARY <  1000                   then 'low salary'
+        when SALARY >= 1000 and SALARY < 3000 then 'medium salary'
+        when SALARY >= 3000 and SALARY < 6000 then 'big salary'
+        when SALARY >= 6000 and SALARY < 8000 then 'huge salary'
+        else 'top salary' 
+    END                                                                 salary_level
+    
+    FROM employees
+    */
 	
 	
 	
