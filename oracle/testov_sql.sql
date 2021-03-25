@@ -114,4 +114,42 @@ SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name,
         e.department_id = d.department_id
 */
 
+/* with between dates - last row
+
+SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name, 
+
+    (CASE 
+        when e.PHONE_NUMBER   like '515%'         then e.PHONE_NUMBER else 'not working anymore'
+     END)                                                               phone_number    ,
+                                                                        e.SALARY        ,     
+    CASE 
+        when e.SALARY <  1000                     then 'low salary'
+        when e.SALARY >= 1000 and e.SALARY < 3000 then 'medium salary'
+        when e.SALARY >= 3000 and e.SALARY < 6000 then 'big salary'
+        when e.SALARY >= 6000 and e.SALARY < 8000 then 'huge salary'
+        else                                           'top salary' 
+    END                                                                 salary_level    ,
+    CASE
+        when d.DEPARTMENT_ID <  60                              then 'dep1'
+        when d.DEPARTMENT_ID >= 80  and d.DEPARTMENT_ID < 90    then 'dep2'
+        when d.DEPARTMENT_ID >= 90  and d.DEPARTMENT_ID < 100   then CASE
+                                                                        when e.SALARY < 5000 then 'smile'
+                                                                        else                      'slile x2'
+                                                                     END
+                                                                                             else ':)'
+    END                                                                 
+                                                                        departments_smile, 
+    DECODE (JOB_ID,    'AD_PRES',       'blue', 
+                       'AD_VP',         'red',
+                       'IT_PROG',       'green', 
+                       'FI_ACCOUNT',    'white',
+                                        'other_color')  "COLORS"
+    FROM
+        employees   e,
+        departments d
+    WHERE
+        e.department_id       =        d.department_id and
+        e.hire_date           between  '2000-01-01' and '2008-01-01';
+
+*/
 
