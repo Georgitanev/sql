@@ -1,6 +1,4 @@
-
-## Complete code:
-1. [Complete code](#Complete-code)
+[Complete code](#Complete-code)
 
 
 /* selecting 3 column in case if phone number like 515% - replace it with 'not working anymore'*/
@@ -128,8 +126,8 @@ SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name,
 
 /* with between dates - last row */
 
-1. 
 ## Complete code
+
 ```sql
 SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name, 
 
