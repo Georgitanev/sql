@@ -56,7 +56,7 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
     CASE 
         when DEPARTMENT_ID <  60                            then 'dep1'
         when DEPARTMENT_ID >= 80  and DEPARTMENT_ID < 90    then 'dep2'
-        when DEPARTMENT_ID >= 90  and DEPARTMENT_ID < 100   then CASE
+        when DEPARTMENT_ID >= 90  and DEPARTMENT_ID < 100   then  CASE
                                                                     when SALARY < 5000 then 'smile'
                                                                     else                    'slile x2'
                                                                  END
@@ -64,7 +64,7 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
 
         
     END                                                                 departments123,
-    DECODE (JOB_ID, 'AD_PRES', 		'blue', 
+    DECODE (JOB_ID, 'AD_PRES', 	    'blue', 
 				    'AD_VP',  		'red',
 				    'IT_PROG', 		'green', 
 				    'FI_ACCOUNT',	'white',
