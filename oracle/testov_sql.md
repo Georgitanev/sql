@@ -1,11 +1,17 @@
-﻿/* selecting 3 column in case if phone number like 515% - replace it with 'not working anymore'
+﻿
+[Complete code](#Complete code)
+
+/* selecting 3 column in case if phone number like 515% - replace it with 'not working anymore'*/
+
+```sql
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
     (case 
     when PHONE_NUMBER like '515%' then  PHONE_NUMBER else 'not working anymore' END) phone_number
     FROM employees
-*/
+```
 
-/* select with case -> check salary and return different strings. Formatted code
+/* select with case -> check salary and return different strings. Formatted code */
+```sql
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
 	(CASE 
 		when PHONE_NUMBER like '515%' then PHONE_NUMBER else 'not working anymore' 
@@ -17,9 +23,10 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
 											   else 'big salary' 
 	END                                                                 salary_level
 FROM employees
-*/
+```
 
-/* added more salary checking ranges
+/* added more salary checking ranges    */
+```sql
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, 
     (CASE 
     when PHONE_NUMBER like '515%' then PHONE_NUMBER else 'not working anymore' 
@@ -34,12 +41,13 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
     END
 																		salary_level
     FROM employees
-    */
+```
 	
 /*  Added case check for department number returning string into new column departments
 	And decode option (Oracle only available)
-	Code is formatted
+	Code is formatted    */
 
+```sql
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
     (CASE 
     when PHONE_NUMBER like '515%' then PHONE_NUMBER else 'not working anymore' 
@@ -70,16 +78,18 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
 				    'FI_ACCOUNT',	'white',
 									'other_color')  "COLORS" 
     FROM employees
-    */
+```
 	
-/* Basic JOIN
+/* Basic JOIN */
+```sql
 select *
 from employees e JOIN DEPARTMENTS d
-on (e.department_id = d.department_id);
-*/
+on 	(e.department_id = d.department_id);
+```
 
 
-/* Join with Alias 'e' and 'd' . Added department. 
+/* Join with Alias 'e' and 'd' . Added department. */
+```sql
 SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name,
     (CASE 
         when e.PHONE_NUMBER   like '515%'         then e.PHONE_NUMBER else 'not working anymore'
@@ -112,10 +122,11 @@ SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name,
         departments d
     WHERE
         e.department_id = d.department_id
-*/
+```
 
-/* with between dates - last row
-
+/* with between dates - last row */
+## Complete code
+```sql
 SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name, 
 
     (CASE 
@@ -148,8 +159,6 @@ SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name,
         employees   e,
         departments d
     WHERE
-        e.department_id       =        d.department_id and
-        e.hire_date           between  '2000-01-01' and '2008-01-01';
-
-*/
-
+        e.department_id       =        d.department_id 	and
+        e.hire_date           between  '2000-01-01' 	and '2008-01-01';
+```
