@@ -1,6 +1,6 @@
 
 ## Complete code:
-1. [Complete code](#Complete code)
+1. [Complete code](#Complete-code)
 
 
 /* selecting 3 column in case if phone number like 515% - replace it with 'not working anymore'*/
