@@ -45,7 +45,7 @@ WHERE 	casting.actorid =
 
 SELECT 	title, name
 FROM 	movie JOIN casting 	ON (id=movieid) 
-			  JOIN actor 	ON (actor.id = actorid)
+	      JOIN actor 	ON (actor.id = actorid)
 WHERE yr=1962 and ord=1
 
 --11.
