@@ -1,7 +1,15 @@
-[Complete code](#Complete-code)
+
+1. [Added extended Salary case](#salary-case)
+2. [Added more case](#mode-case)
+3. [Basic JOIN](#basic-join)
+4. [Code with JOIN](#join)
+5. [Complete code](#Complete-code)
 
 
-/* selecting 3 column in case if phone number like 515% - replace it with 'not working anymore'*/
+edit: to comment sql code use at start and at the end 
+
+## Phone number
+selecting 3 column in case if phone number like 515% - replace it with 'not working anymore'
 
 ```sql
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
@@ -10,7 +18,8 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
     FROM employees
 ```
 
-/* select with case -> check salary and return different strings. Formatted code */
+## Salary case
+select with case -> check salary and return different strings. Formatted code 
 ```sql
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
 	(CASE 
@@ -24,8 +33,8 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
 	END                                                                 salary_level
 FROM employees
 ```
-
-/* added more salary checking ranges    */
+## Added extended Salary case
+added more salary checking ranges    
 ```sql
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, 
     (CASE 
@@ -42,10 +51,11 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
 																		salary_level
     FROM employees
 ```
-	
-/*  Added case check for department number returning string into new column departments
+
+## Added more case
+ Added case check for department number returning string into new column departments
 	And decode option (Oracle only available)
-	Code is formatted    */
+	Code is formatted    
 
 ```sql
 SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
@@ -80,7 +90,7 @@ SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME,
     FROM employees
 ```
 	
-/* Basic JOIN */
+## Basic JOIN 
 ```sql
 select *
 from employees e JOIN DEPARTMENTS d
@@ -88,7 +98,8 @@ on 	(e.department_id = d.department_id);
 ```
 
 
-/* Join with Alias 'e' and 'd' . Added department. */
+Join with Alias 'e' and 'd' . Added department. 
+## Code with JOIN
 ```sql
 SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name,
     (CASE 
@@ -124,10 +135,10 @@ SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name,
         e.department_id = d.department_id
 ```
 
-/* with between dates - last row */
+with between dates - last row 
 
+1. 
 ## Complete code
-
 ```sql
 SELECT e.EMPLOYEE_ID, e.FIRST_NAME, e.LAST_NAME, d.department_name, 
 
