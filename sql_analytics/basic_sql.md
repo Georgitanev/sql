@@ -82,21 +82,22 @@ select 		gender, count(gender)
 from 		employeedemographics
 group by 	gender
 ```
-
---distincted
---gender	count
---Female	3
---Male		6
-
+```
+distincted
+gender	count
+Female		3
+Male		6
+```
 ```
 select 		gender, count(gender)
 from 		employeedemographics
 where 		age > 31
 group by 	gender
 ```
---Male		3
---Female	1
-
+```
+Male		3
+Female		1
+```
 
 asc order by default - увеличаващ се ред
 
@@ -108,9 +109,10 @@ group by 	gender
 order by 	gender
 ```
 
---Female	1
---Male		3
-
+```
+Female	1
+Male	3
+```
 
 Descending - намаляващ
 
@@ -122,8 +124,10 @@ group by 	gender
 order by 	gender desc
 ```
 
---Male		3
---Female	1
+```
+Male		3
+Female		1
+```
 
 ```
 select 		*
