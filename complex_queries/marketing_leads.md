@@ -4,7 +4,7 @@
 Below you will find 3 tables. Based on these tables, build a query to calculate, for each website name, the number of unique leads that were created. 
 A lead will be considered unique only on the first lead event for that email in the system. If the same email will have a later lead event from another website it will not count as unique. 
 
-![N|Solid](https://github.com/Georgitanev/sql/blob/master/complex_queries/leads_schema.png?raw=true)
+![N|Solid](https://github.com/Georgitanev/sql/blob/master/complex_queries/marketing/leads_schema.png?raw=true)
 
 1. Step 1
 
@@ -18,7 +18,7 @@ select * from websites
 join advertisements on websites.website_id 				= advertisements.website_id
 join leads 			on advertisements.advertisement_id	= leads.advertisement_id
 ```
-![Build Status](https://github.com/Georgitanev/sql/blob/master/complex_queries/joins.png?raw=true)
+![Build Status](https://github.com/Georgitanev/sql/blob/master/complex_queries/marketing/joins.png?raw=true)
 
 ## 2.  select leads
 ```sql
@@ -28,7 +28,7 @@ select * from leads
 ```sql
 select distinct min(event_id) over (partition by email) as eid, email, advertisement_id from leads
 ```
-![Build Status](https://github.com/Georgitanev/sql/blob/master/complex_queries/event_id.png?raw=true)
+![Build Status](https://github.com/Georgitanev/sql/blob/master/complex_queries/marketing/event_id.png?raw=true)
 
 ## 4 selectig advertisement_id, and count repeated id's as unique leads where event id is only first one
 
@@ -73,4 +73,4 @@ end 									unique_leads
 left join advertisements 		on websites.website_id 				= advertisements.website_id
 left join CTE_leads 			on advertisements.advertisement_id	= CTE_leads.advertisement_id
 ```
-![Build Status](https://github.com/Georgitanev/sql/blob/master/complex_queries/final_marketing.png?raw=true)
+![Build Status](https://github.com/Georgitanev/sql/blob/master/complex_queries/marketing/final_marketing.png?raw=true)
