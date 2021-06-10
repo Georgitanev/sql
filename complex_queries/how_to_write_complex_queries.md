@@ -3,6 +3,10 @@
 -- Northwind tables :)
 ## How to approach more complex queries
 
+#### Northwind schema
+![Build Status](https://github.com/Georgitanev/sql/blob/master/complex_queries/northwind/Northwind_4tables_schema_complex_query.png?raw=true)
+
+
 --Taks - GET:
 --product_name, product_id, category_name, Product_revenue
 --for orders from 1996 year
@@ -191,7 +195,7 @@ order by
 
 --Give a list of products that have create more than $5000 in revenue in 1996
 --show the productname, product_id and category name. Order by product name.
---7. add the order by. CODE formatting.
+--7. add the order by. CODE formatting. --regression, classification and optimization
 
 ```sql
 select  products.product_name						,
