@@ -1,7 +1,8 @@
-﻿
-Table 1 Query:
+﻿Table 1 Query:
 Create Table EmployeeDemographics 
 ```sql
+
+Create Table EmployeeDemographics 
 (EmployeeID int, 
 FirstName varchar(50), 
 LastName varchar(50), 
@@ -13,6 +14,7 @@ Gender varchar(50)
 Table 2 Query:
 Create Table EmployeeSalary 
 ```sql
+Create Table EmployeeSalary 
 (EmployeeID int, 
 JobTitle varchar(50), 
 Salary int
