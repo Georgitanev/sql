@@ -1,4 +1,4 @@
-﻿```
+﻿```sql
 Insert into EmployeeDemographics VALUES
 (1011, 'Ryan', 'Howard', 26, 'Male'),
 (NULL, 'Holly', 'Flax', NULL, NULL),
@@ -8,7 +8,7 @@ Insert into EmployeeDemographics VALUES
 
 Table 3 Query:
 
-```
+```sql
 Create Table WareHouseEmployeeDemographics 
 (EmployeeID int, 
 FirstName varchar(50), 
@@ -21,7 +21,7 @@ Gender varchar(50)
 
 Table 3 Insert:
 
-```
+```sql
 Insert into WareHouseEmployeeDemographics VALUES
 (1013, 'Darryl', 'Philbin', NULL, 'Male'),
 (1050, 'Roy', 'Anderson', 31, 'Male'),

@@ -1,7 +1,7 @@
 ﻿#### JOINS
 
 #### Two tables
-```
+```sql
 select 		*
 from 		employeedemographics
 ```
@@ -12,7 +12,7 @@ from 		employeesalary;
 
 ###### Showing everything with same id
 
-```
+```sql
 select *
 from 		employeedemographics
 inner join 	employeesalary
@@ -21,7 +21,7 @@ inner join 	employeesalary
 
 ###### Select where name is not 'Michael' salary desc
 	
-```
+```sql
 select 		employeedemographics.employeeid, firstname, lastname
 from 		employeedemographics
 inner JOIN 	employeesalary
@@ -32,7 +32,7 @@ order by 	Salary desc
 
 ###### Salesman salaries:
 
-```
+```sql
 select 		jobtitle, salary
 from 		employeedemographics
 inner join 	employeesalary
@@ -42,7 +42,7 @@ where 		jobtitle = 'Salesman'
 
 ###### group by average salary:
 
-```
+```sql
 select 		jobtitle, avg(Salary)
 from 		employeedemographics
 inner join 	employeesalary
@@ -52,7 +52,7 @@ group by 	jobtitle
 ```
 
 #### self join one name
-```
+```sql
 SELECT
     e.first_name  employee,
     m.first_name  manager
@@ -63,7 +63,7 @@ ORDER BY 	manager;
 ```
 
 #### self join with as and order by
-```
+```sql
 select		e.first_name as e_name,
 			m.first_name as m_name
 from 		employee 	 as e 
@@ -72,7 +72,7 @@ order by 	e_name, m_name;
 ```
 
 
-```
+```sql
 SELECT
     e.first_name  || ' ' || e.last_name employee,
     m.first_name  || ' ' || m.last_name manager

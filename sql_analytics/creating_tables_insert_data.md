@@ -1,7 +1,7 @@
 ﻿
 Table 1 Query:
 Create Table EmployeeDemographics 
-```
+```sql
 (EmployeeID int, 
 FirstName varchar(50), 
 LastName varchar(50), 
@@ -12,7 +12,7 @@ Gender varchar(50)
 
 Table 2 Query:
 Create Table EmployeeSalary 
-```
+```sql
 (EmployeeID int, 
 JobTitle varchar(50), 
 Salary int
@@ -21,7 +21,7 @@ Salary int
 
 
 Table 1 Insert:
-```
+```sql
 Insert into EmployeeDemographics VALUES
 (1001, 'Jim', 'Halpert', 30, 'Male'),
 (1002, 'Pam', 'Beasley', 30, 'Female'),
@@ -35,7 +35,7 @@ Insert into EmployeeDemographics VALUES
 ```
 
 Table 2 Insert:
-```
+```sql
 Insert Into EmployeeSalary VALUES
 (1001, 'Salesman', 45000),
 (1002, 'Receptionist', 36000),
