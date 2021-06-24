@@ -75,6 +75,9 @@ order by
 
 -- When it's left() function, it makes seq scan, not index scan
   ->  Seq Scan on film  (cost=0.00..71.50 rows=5 width=15) (actual time=0.673..0.673 rows=0 loops=1)
+Planning Time: 0.103 ms
+Execution Time: 0.733 ms
+  
 -- When it's like 
 
 -- like vs left
@@ -87,7 +90,8 @@ order by
 		
   ->  Bitmap Heap Scan on film  (cost=20.04..35.55 rows=5 width=15) (actual time=0.017..0.017 rows=0 loops=1)
   ->  Bitmap Index Scan on idx_film_title_gin_lower  (cost=0.00..20.04 rows=5 width=0) (actual time=0.015..0.015 rows=0 loops=1)
-
+Planning Time: 0.138 ms
+Execution Time: 0.060 ms
 ```
 -----------------------------------------------------
 
