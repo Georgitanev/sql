@@ -103,49 +103,41 @@ from 	film join 	film_category	on (film.film_id 				= film_category.film_id)
 where 	lower(film.title) like 'ac%'
 order by film.title, category.name desc
 limit 20
-```
 
-```sql
+
+
 explain analyze
 select  film.title, payment.amount
-from 	film 		join 	inventory	on
- 							(film.film_id 			= inventory.film_id)
-					join	rental 		on
- 							(inventory.inventory_id = rental.inventory_id)
- 					join 	payment		on
-	 						(rental.rental_id		= payment.rental_id)
+from 	film 		join 	inventory	on (film.film_id 			= inventory.film_id)
+					join	rental 		on (inventory.inventory_id = rental.inventory_id)
+ 					join 	payment		on (rental.rental_id		= payment.rental_id)
 where 		lower(film.title) like 'ac%'
 		and	payment.amount > 5
 
 order by film.title desc
 limit 20
-```
 
 
-```sql
 select  film.title, payment.amount
 from 	film 		
-					join 	inventory	on
- 							(film.film_id 			= inventory.film_id)
-					join	rental 		on
- 							(inventory.inventory_id = rental.inventory_id)
- 					join 	payment		on
-	 						(rental.rental_id		= payment.rental_id)
+					join 	inventory	on (film.film_id 			= inventory.film_id)
+					join	rental 		on (inventory.inventory_id = rental.inventory_id)
+ 					join 	payment		on (rental.rental_id		= payment.rental_id)
 where 		lower(film.title) 	like 	'a%'
 		and	payment.amount 		> 5 	and payment.amount < 7
 
 group by film.title, payment.amount
 order by film.title desc
 limit 200
-```
 
-```sql
+
 select 			c."name", avg(f.rental_rate), count(f.film_id)
 from 			category 		as c
 left 	join 	film_category 	as fc 	on (fc.category_id	= c.category_id)
 left 	join 	film 			as f 	on (f.film_id		= fc.film_id)
 group by 		c."name"
 having 			avg(f.rental_rate)>2 	and count(f.film_id)>5;
+
 
 select name from category limit 100
 ```
