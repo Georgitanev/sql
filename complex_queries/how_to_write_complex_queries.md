@@ -111,7 +111,10 @@ from 	products
 join 	categories 				on products.category_id 	= categories.category_id
 join 	order_details as od 	on products.product_id 		= od.product_id
 join 	orders 					on od.order_id 				= orders.order_id
-where 	extract(year from orders.order_date) = 1996
+-- where extract(year from orders.order_date) = 1996 -- because it's a function it's not making index scan!!!
+-- extract(year from orders.order_date) = 1996 this works with index scan if I create index with same function:
+-- create index idx_order_date_year on orders using btree(extract(year from orders.order_date));
+where  orders.order_date >= '1996-01-01' and orders.order_date <= '1996-12-31'
 order by 
 	products.product_name
 ```
@@ -195,7 +198,7 @@ order by
 
 --Give a list of products that have create more than $5000 in revenue in 1996
 --show the productname, product_id and category name. Order by product name.
---7. add the order by. CODE formatting. --regression, classification and optimization
+--7. add the order by. CODE formatting. 
 
 ```sql
 select  products.product_name						,
