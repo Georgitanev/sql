@@ -1,0 +1,9 @@
+SELECT 
+	sales_customer_id
+	, sales_date
+	, LAG(sales_amount) 	OVER(PARTITION BY sales_customer_id ORDER BY sales_date) as prevvalue
+	, sales_amount
+	, LEAD(sales_amount) 	OVER(PARTITION BY sales_customer_id ORDER BY sales_date) as nextvalue
+FROM dbo.Sales
+
+--https://www.youtube.com/watch?v=wOCCxRAQ914&t=326s
