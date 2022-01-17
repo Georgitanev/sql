@@ -86,7 +86,7 @@ ORDER BY 	manager;
 
 
 ### Unions
-```
+```sql
 Insert into EmployeeDemographics VALUES
 (1011, 'Ryan', 'Howard', 26, 'Male'),
 (NULL, 'Holly', 'Flax', NULL, NULL),
@@ -96,7 +96,7 @@ Insert into EmployeeDemographics VALUES
 
 ##### Table 3 Query:
 
-```
+```sql
 Create Table WareHouseEmployeeDemographics 
 (EmployeeID int, 
 FirstName varchar(50), 
@@ -109,7 +109,7 @@ Gender varchar(50)
 
 ##### Table 3 Insert:
 
-```
+```sql
 Insert into WareHouseEmployeeDemographics VALUES
 (1013, 'Darryl', 'Philbin', NULL, 'Male'),
 (1050, 'Roy', 'Anderson', 31, 'Male'),
@@ -118,10 +118,50 @@ Insert into WareHouseEmployeeDemographics VALUES
 ```
 
 ```sql
+
 select employeeid from employeedemographics
 union 
 select employeeid from employeesalary
 ```
+
+
+#### case
+```sql
+
+select 	firstname, lastname, age,
+case	-- first condition met :)
+	when age = 31 then 	'he is 31 years old'
+	when age > 30 then 	'Old'
+	else 				'Yound'
+end 					he_is
+from 	employeedemographics
+where 	age is not null
+order by 
+		age
+```	
+
+```sql
+
+select 	firstname, lastname, jobtitle, salary
+from 	employeedemographics
+join 	employeesalary on employeedemographics.employeeid = employeesalary.employeeid
+```
+
+#### salary rasing with case statement
+```sql
+
+select 	firstname, lastname, jobtitle, salary,
+case
+	when jobtitle = 'Salesman' 		then salary + (salary * .10)
+	when jobtitle = 'Accountant' 	then salary + (salary * .05)
+	when jobtitle = 'HR' 			then salary + (salary * .000001)
+	else								 salary + (salary * .03)
+end as salary_after_raise
+from 	employeedemographics
+join 	employeesalary on employeedemographics.employeeid = employeesalary.employeeid
+```
+
+
 
 
 
