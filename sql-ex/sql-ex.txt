@@ -21,3 +21,6 @@ select product.model, printer.price from product JOIN printer ON product.model=p
 where maker = 'B'
 
 8.
+select maker from product 
+WHERE type ='PC' and maker not in (select maker from product where type ='Laptop')
+group by maker
