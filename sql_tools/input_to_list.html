@@ -1,0 +1,90 @@
+﻿<html>
+<body>
+<!-- <input type='text' id='idea' /> -->
+<textarea  type='text' name="test" id='idea' cols="50" rows="20"></textarea>
+<br>
+And obviously a button to add to the list:
+
+
+<input type='button' value='add to list new row' id='generate_sql_list_new_row' />
+<input type='button' value='add to list' id='generate_sql_list_comma' />
+And a list to be adding to:
+
+<ul id='list'></ul>
+<form name="frm">
+
+
+<script>
+
+
+document.getElementById("generate_sql_list_new_row").onclick = function(par) {
+    //First things first, we need our text:
+    var text = document.getElementById("idea").value; //.value gets input values
+
+	<!-- const list_of_strings = text.split(' '); -->
+	const list_of_strings = text.split('\n');
+	console.log(list_of_strings);
+
+
+    //Now construct a quick list element
+    var li = "<p>" + list_of_strings + "</p>";
+	
+	
+	list_of_strings_len = list_of_strings.length;
+	let final_string = '<b>' + 'SQL list result:<br>' + '</b>';
+	final_string += '<br>' + 'where in ('
+	
+	for (var i = 0; i < list_of_strings_len; i++) {
+		// console.log(myFormStringArray[i] + ' T');
+		// let aaa = '1. Treatment Name'
+		if (i != list_of_strings_len - 1) {
+			final_string += "'" + list_of_strings[i] + "',";
+			} else {
+					final_string += "'" + list_of_strings[i] + "'";
+				}
+		}
+
+	final_string += ')';
+	var z = document.createElement('p'); // is a node
+	z.innerHTML = "<p>" + final_string + "</p>";
+	document.body.appendChild(z);	
+	document.getElementById("list").appendChild(z);
+	
+}
+document.getElementById("generate_sql_list_comma").onclick = function(par) {
+    //First things first, we need our text:
+    var text = document.getElementById("idea").value; //.value gets input values
+
+	<!-- const list_of_strings = text.split(' '); -->
+	const list_of_strings = text.split(',');
+	console.log(list_of_strings);
+
+
+    //Now construct a quick list element
+    var li = "<p>" + list_of_strings + "</p>";
+	
+	
+	list_of_strings_len = list_of_strings.length;
+	let final_string = '<b>' + 'SQL list result:<br>' + '</b>';
+	final_string += '<br>' + 'where in ('
+	
+	for (var i = 0; i < list_of_strings_len; i++) {
+		// console.log(myFormStringArray[i] + ' T');
+		// let aaa = '1. Treatment Name'
+		if (i != list_of_strings_len - 1) {
+			final_string += "'" + list_of_strings[i] + "',";
+			} else {
+					final_string += "'" + list_of_strings[i] + "'";
+				}
+		}
+	
+	final_string += ')';
+	var z = document.createElement('p'); // is a node
+	z.innerHTML = "<p>" + final_string + "</p>";
+	document.body.appendChild(z);	
+	document.getElementById("list").appendChild(z);
+	
+}
+</script>
+</body>
+</html>

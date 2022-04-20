@@ -1,0 +1,1 @@
+extract_all_compare_with_all_table_column_names

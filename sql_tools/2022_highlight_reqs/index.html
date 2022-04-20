@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- saved from url=(0079)file:///C:/Users/gtanev/Desktop/notepad++/web_page/read_text_file_v3/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index_files/style.css">
+	
+	<!-- <link rel="stylesheet" href="./highlighter/styles/default.min.css"> -->
+	<script src="./highlighter/highlight.min.js"></script>
+	<!-- <script>hljs.highlightAll();</script> -->
+</head>
+<body>
+    
+    <div>
+		
+		Standart columns code 
+		<h3>example</h3>
+
+	
+		<textarea class='highlight' id="textareabox_sql" name="textarea" placeholder="textareabox_sql" style="margin: 15px 0px 0px; height: 528px; width: 975px;">
+WITH t1 AS (
+		SELECT f.title as film_title,
+			 c.name AS category_name,
+				 NTILE(4) OVER (ORDER BY f.rental_duration) AS standard_quartile
+		 FROM film f
+		 JOIN film_category as fc
+		USING (film_id)
+		 JOIN category c
+		USING (category_id)
+)
+  SELECT DISTINCT * 
+   FROM (
+   SELECT category_name,
+			standard_quartile,
+			COUNT(film_title) 
+			OVER(PARTITION BY standard_quartile ORDER BY category_name)
+	FROM t1
+   WHERE category_name 
+	  IN ('Animation', 'Children', 'Classics', 'Comedy', 'Family', 'Music')
+ORDER BY 1) sub		
+		
+		
+		</textarea>
+		<input type="button" value="Get Text" onclick="getTextAbove()">
+		<input type="button" value="Get Text_new Unique" onclick="getTextNewAboveUnique()">	
+		
+
+			<p id="pdf_sql_types_above" class='code' style="margin: 15px 0px 0px; height: *; width: 975px;"><b>category/subcat columns</b>
+			</p>
+
+
+		<h3>Don't leave empty rows, it will throw an error</h3>
+		<input type="button" value="Get Text_new Unique" onclick="getTextNewAboveUnique()">	
+		<textarea class='highlight' id="textareabox_sql2" name="textarea2" placeholder="textareabox_sql2" style="margin: 15px 0px 0px; height: 128px; width: 975px;">
+film_title
+Children
+Classics
+Comedy
+Family
+film
+film_title
+category_name
+film_id
+film_category
+Music
+Animation
+category_id
+</textarea>
+		
+		<input type="button" value="Get Text_new" onclick="getTextNewAbove()">		
+		<input type="button" value="Get Text_new Unique" onclick="getTextNewAboveUnique()">	
+		<br><br><br><br><br><br>
+		<!-- <input type="button" value="excel_columns_upper_case" onclick="columns_to_code_UPPER2()"> -->
+		<!-- <input type="button" value="columns_to_code_UPPER2_col" onclick="columns_to_code_UPPER2_col()">		 -->
+		
+		<!-- <p id="pdf_sql_typesb_below" class='code' style="margin: 15px 0px 0px; height: 428px; width: 975px;"><b>category/subcat columns</b> -->
+		<!-- </p> -->
+
+
+
+		<div id="output"></div>			
+		<!-- </code></pre> -->
+		<!-- code highlighting end here -->
+		<!-- <textarea id="name_result" name="textarea" placeholder="table_name like BA_C3651009_SRDM_QC" cols="5" rows="30"></textarea> -->
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<!-- <textarea id="x"></textarea> -->
+	
+
+
+		
+    </div>
+    
+    <script src="./index_files/script.js"></script>
+	<script src="./index_files/raboti.js"></script>
+	<script src="./index_files/raboti_sql_types.js"></script>
+	<!-- <script src="excel_checker.js"></script> -->
+	
+	
+	
+	<!-- <link rel="stylesheet" href="/path/to/styles/default.css"> -->
+	<!-- <script src="./index_files/highlight.min.js"></script> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+	<!-- and it's easy to individually load additional languages -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/languages/go.min.js"></script>	
+	
+	
+	<script>hljs.highlightAll();</script>
+	
+<!-- <div> -->
+            <!-- <textarea id="textareabox" name="textarea1" placeholder="Start here..."></textarea> -->
+            <!-- <input type="button" value="Get Text" onclick="getText()" /> -->
+            <!-- <input type="button" value="Set Text" onclick="setText()" /> -->
+        <!-- </div> -->
+		
+    
+
+
+
+</body></html>

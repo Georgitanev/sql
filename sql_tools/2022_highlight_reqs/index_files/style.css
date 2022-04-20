@@ -1,0 +1,75 @@
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+em { background-color:yellow }
+
+
+/* w3-container w0 -red */
+
+.w1-red, .w3-hover-red:hover {
+    /* color: #fff!important; */
+    background-color: #f44136!important;
+}
+
+.w2-red, .w3-hover-red:hover {
+    /* color: #fff!important; */
+    background-color: #f44232!important;
+}
+
+.w3-red, .w3-hover-red:hover {
+    /* color: #fff!important; */
+    background-color: #f44341!important;
+}
+
+.w4-red, .w3-hover-red:hover {
+    /* color: #fff!important; */
+    background-color: #f44466!important;
+}
+
+.w5-red, .w3-hover-red:hover {
+    /* color: #fff!important; */
+    background-color: #f44536!important;
+}
+
+.w6-red, .w3-hover-red:hover {
+    /* color: #fff!important; */
+    background-color: #f44636!important;
+}
+
+.w7-red, .w3-hover-red:hover {
+    /* color: #fff!important; */
+    background-color: #f44736!important;
+}
+
+
+textarea {
+    margin-top: 15px;
+    width: 60%;
+	height: 80%;
+	white-space: pre;
+}
+
+
+
+pdf_sql_types {
+    margin-top: 15px;
+    width: 60%;
+	height: 80%;
+	white-space: pre;
+}
+
+.textarea{
+  width:1200px;
+  height:800px;
+  white-space: pre;
+}
+
+
+.pdf_sql_types {
+  width:1200px;
+  height:800px;
+  white-space: pre;
+}
